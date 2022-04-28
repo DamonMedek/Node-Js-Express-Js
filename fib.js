@@ -1,25 +1,30 @@
-const http = require("http");
+const express = require("express");
+const app = express();
+const path = require("path");
+const router = express.Router();
 
-const HOSTNAME = process.env.HOSTNAME || "localhost";
-const PORT = process.env.PORT || 3000;
 
-const server = http.createServer((request, response) => {
-  response.statusCode = 200;
-  response.setHeader("Content-Type", "text/plain");
-  response.end("Hello World");
+router.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname + "/index.html"));
 });
 
-server.listen(PORT, HOSTNAME, () => {
-  console.log(`Server Running at http://${HOSTNAME}:${PORT}`);
-});
+app.use("/", router);
+app.use(express.static(__dirname));
 
-var fullArray = [0, 1, 1];
-for (var i = 0; i <= 1000;) {
-  let lastArrValues = fullArray.slice(-2);
-  let i = lastArrValues[0] + lastArrValues[1];
-  fullArray.push(i);
-  if (i >= 1000) {
-    console.log(fullArray);
-    break;
+app.listen(process.env.port || 3000);
+
+console.log(`Server Running at http://localhost:3000`);
+
+function Fibinacci() {
+  var fullArray = [0, 1, 1];
+  for (var i = 0; i <= 1000; ) {
+    let lastArrValues = fullArray.slice(-2);
+    let i = lastArrValues[0] + lastArrValues[1];
+    fullArray.push(i);
+    if (i >= 1000) {
+      console.log(fullArray);
+      break;
+    }
   }
 }
+//Fibinacci();
