@@ -1,6 +1,9 @@
 $("#sumthing").on("click", function () {
-  $("#sumthing").css("background-color", "red");
+  $(this).css("background-color", "#00FFFF");
+  $(this).text("Ouch!");
 });
+
+
 
 function Fibinacci() {
   var fullArray = [0, 1, 1];
