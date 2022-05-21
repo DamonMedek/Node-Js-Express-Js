@@ -1,20 +1,18 @@
-$("#sumthing").on("click", function () {
-  $(this).css("background-color", "#00FFFF");
-  $(this).text("Ouch!");
-});
-
-
-
-function Fibinacci() {
-  var fullArray = [0, 1, 1];
-  for (var i = 0; i <= 1000; ) {
-    let lastArrValues = fullArray.slice(-2);
-    let i = lastArrValues[0] + lastArrValues[1];
-    fullArray.push(i);
-    if (i >= 1000) {
-      console.log(fullArray);
-      break;
-    }
-  }
-}
-Fibinacci();
+VANTA.BIRDS({
+  el: "#element",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  backgroundColor: 0x0,
+  color1: 0x9503ff,
+  color2: 0x357f5,
+  colorMode: "lerpGradient",
+  birdSize: 1.10,
+  speedLimit: 6.00,
+  separation: 40.00,
+  alignment: 38.00
+})
